@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B82184EA2A35E59600CA33A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82184E92A35E59600CA33A6 /* AppDelegate.swift */; };
 		B82184EC2A35E59600CA33A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82184EB2A35E59600CA33A6 /* SceneDelegate.swift */; };
-		B82184EE2A35E59600CA33A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82184ED2A35E59600CA33A6 /* ViewController.swift */; };
 		B82184F12A35E59600CA33A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82184EF2A35E59600CA33A6 /* Main.storyboard */; };
 		B82184F42A35E59600CA33A6 /* ProductViewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B82184F22A35E59600CA33A6 /* ProductViewer.xcdatamodeld */; };
 		B82184F62A35E59800CA33A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B82184F52A35E59800CA33A6 /* Assets.xcassets */; };
@@ -17,6 +16,13 @@
 		B82185042A35E59800CA33A6 /* ProductViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82185032A35E59800CA33A6 /* ProductViewerTests.swift */; };
 		B821850E2A35E59800CA33A6 /* ProductViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B821850D2A35E59800CA33A6 /* ProductViewerUITests.swift */; };
 		B82185102A35E59800CA33A6 /* ProductViewerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B821850F2A35E59800CA33A6 /* ProductViewerUITestsLaunchTests.swift */; };
+		B821851E2A35E5C900CA33A6 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = B821851D2A35E5C900CA33A6 /* Products.swift */; };
+		B82185232A35E61F00CA33A6 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82185222A35E61F00CA33A6 /* NetworkServiceProtocol.swift */; };
+		B82185262A35E64900CA33A6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82185252A35E64900CA33A6 /* NetworkService.swift */; };
+		B82185282A35E66800CA33A6 /* CachingServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82185272A35E66800CA33A6 /* CachingServiceProtocol.swift */; };
+		B821852A2A35E67F00CA33A6 /* CachingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82185292A35E67F00CA33A6 /* CachingService.swift */; };
+		B82185312A35E6EA00CA33A6 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82185302A35E6EA00CA33A6 /* ProductViewModel.swift */; };
+		B82185362A35E73400CA33A6 /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82185352A35E73400CA33A6 /* ProductDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +46,6 @@
 		B82184E62A35E59600CA33A6 /* ProductViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82184E92A35E59600CA33A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B82184EB2A35E59600CA33A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B82184ED2A35E59600CA33A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B82184F02A35E59600CA33A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B82184F32A35E59600CA33A6 /* ProductViewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProductViewer.xcdatamodel; sourceTree = "<group>"; };
 		B82184F52A35E59800CA33A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +56,13 @@
 		B82185092A35E59800CA33A6 /* ProductViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProductViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B821850D2A35E59800CA33A6 /* ProductViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewerUITests.swift; sourceTree = "<group>"; };
 		B821850F2A35E59800CA33A6 /* ProductViewerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B821851D2A35E5C900CA33A6 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		B82185222A35E61F00CA33A6 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		B82185252A35E64900CA33A6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		B82185272A35E66800CA33A6 /* CachingServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingServiceProtocol.swift; sourceTree = "<group>"; };
+		B82185292A35E67F00CA33A6 /* CachingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingService.swift; sourceTree = "<group>"; };
+		B82185302A35E6EA00CA33A6 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
+		B82185352A35E73400CA33A6 /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +113,12 @@
 		B82184E82A35E59600CA33A6 /* ProductViewer */ = {
 			isa = PBXGroup;
 			children = (
+				B821852B2A35E69500CA33A6 /* Modules */,
+				B821851F2A35E5E400CA33A6 /* Services */,
+				B821851C2A35E5B900CA33A6 /* Model */,
 				B82184E92A35E59600CA33A6 /* AppDelegate.swift */,
-				B82184EB2A35E59600CA33A6 /* SceneDelegate.swift */,
-				B82184ED2A35E59600CA33A6 /* ViewController.swift */,
 				B82184EF2A35E59600CA33A6 /* Main.storyboard */,
+				B82184EB2A35E59600CA33A6 /* SceneDelegate.swift */,
 				B82184F52A35E59800CA33A6 /* Assets.xcassets */,
 				B82184F72A35E59800CA33A6 /* LaunchScreen.storyboard */,
 				B82184FA2A35E59800CA33A6 /* Info.plist */,
@@ -128,6 +142,98 @@
 				B821850F2A35E59800CA33A6 /* ProductViewerUITestsLaunchTests.swift */,
 			);
 			path = ProductViewerUITests;
+			sourceTree = "<group>";
+		};
+		B821851C2A35E5B900CA33A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B821851D2A35E5C900CA33A6 /* Products.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B821851F2A35E5E400CA33A6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B82185212A35E60700CA33A6 /* CachingService */,
+				B82185202A35E5ED00CA33A6 /* NetworkService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B82185202A35E5ED00CA33A6 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				B82185222A35E61F00CA33A6 /* NetworkServiceProtocol.swift */,
+				B82185252A35E64900CA33A6 /* NetworkService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		B82185212A35E60700CA33A6 /* CachingService */ = {
+			isa = PBXGroup;
+			children = (
+				B82185272A35E66800CA33A6 /* CachingServiceProtocol.swift */,
+				B82185292A35E67F00CA33A6 /* CachingService.swift */,
+			);
+			path = CachingService;
+			sourceTree = "<group>";
+		};
+		B821852B2A35E69500CA33A6 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				B821852D2A35E6A400CA33A6 /* ProductDetails */,
+				B821852C2A35E69C00CA33A6 /* Product */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		B821852C2A35E69C00CA33A6 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				B821852F2A35E6BC00CA33A6 /* ProductViewModel */,
+				B821852E2A35E6B100CA33A6 /* ProductView */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		B821852D2A35E6A400CA33A6 /* ProductDetails */ = {
+			isa = PBXGroup;
+			children = (
+				B82185332A35E70E00CA33A6 /* ProductDetailsViewModel */,
+				B82185322A35E70200CA33A6 /* ProductDetailsView */,
+			);
+			path = ProductDetails;
+			sourceTree = "<group>";
+		};
+		B821852E2A35E6B100CA33A6 /* ProductView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProductView;
+			sourceTree = "<group>";
+		};
+		B821852F2A35E6BC00CA33A6 /* ProductViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B82185302A35E6EA00CA33A6 /* ProductViewModel.swift */,
+			);
+			path = ProductViewModel;
+			sourceTree = "<group>";
+		};
+		B82185322A35E70200CA33A6 /* ProductDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProductDetailsView;
+			sourceTree = "<group>";
+		};
+		B82185332A35E70E00CA33A6 /* ProductDetailsViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B82185352A35E73400CA33A6 /* ProductDetailsViewModel.swift */,
+			);
+			path = ProductDetailsViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,10 +367,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B82184EE2A35E59600CA33A6 /* ViewController.swift in Sources */,
 				B82184F42A35E59600CA33A6 /* ProductViewer.xcdatamodeld in Sources */,
+				B82185362A35E73400CA33A6 /* ProductDetailsViewModel.swift in Sources */,
+				B82185232A35E61F00CA33A6 /* NetworkServiceProtocol.swift in Sources */,
+				B821851E2A35E5C900CA33A6 /* Products.swift in Sources */,
 				B82184EA2A35E59600CA33A6 /* AppDelegate.swift in Sources */,
 				B82184EC2A35E59600CA33A6 /* SceneDelegate.swift in Sources */,
+				B82185312A35E6EA00CA33A6 /* ProductViewModel.swift in Sources */,
+				B821852A2A35E67F00CA33A6 /* CachingService.swift in Sources */,
+				B82185262A35E64900CA33A6 /* NetworkService.swift in Sources */,
+				B82185282A35E66800CA33A6 /* CachingServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
