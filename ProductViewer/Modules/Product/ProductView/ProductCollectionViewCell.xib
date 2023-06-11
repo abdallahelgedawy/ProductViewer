@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="landscape" appearance="light"/>
+    <accessibilityOverrides/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productCell" id="gTV-IL-0wX" customClass="ProductCollectionViewCell" customModule="ProductViewer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="210" height="409"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="210" height="409"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wf9-AW-vXr">
+                        <rect key="frame" x="5" y="0.0" width="200" height="409"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" image="test" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZa-bn-mzg">
+                                <rect key="frame" x="10" y="10" width="180" height="174.66666666666666"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Glad Clingwrap Plastic Wrap, 200 sf" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="vEB-RI-b28">
+                                <rect key="frame" x="0.0" y="204.66666666666666" width="185" height="40.666666666666657"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Microwve-safe Easy to handle Contains no plasticizer" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="6" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zFx-O5-HUE">
+                                <rect key="frame" x="5" y="300.33333333333331" width="190" height="28.666666666666686"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.24$" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu0-ys-clg">
+                                <rect key="frame" x="80" y="250.33333333333334" width="97" height="15.666666666666657"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="tintColor"/>
+                        <constraints>
+                            <constraint firstItem="fu0-ys-clg" firstAttribute="top" secondItem="vEB-RI-b28" secondAttribute="bottom" constant="5" id="1bq-Oe-E8h"/>
+                            <constraint firstAttribute="bottom" secondItem="zFx-O5-HUE" secondAttribute="bottom" constant="80" id="Hhr-S1-23V"/>
+                            <constraint firstItem="vEB-RI-b28" firstAttribute="leading" secondItem="Wf9-AW-vXr" secondAttribute="leading" id="Jb7-38-erk"/>
+                            <constraint firstAttribute="trailing" secondItem="fu0-ys-clg" secondAttribute="trailing" constant="23" id="NQ5-p2-p72"/>
+                            <constraint firstItem="zFx-O5-HUE" firstAttribute="leading" secondItem="Wf9-AW-vXr" secondAttribute="leading" constant="5" id="PZo-c1-gLR"/>
+                            <constraint firstAttribute="trailing" secondItem="xZa-bn-mzg" secondAttribute="trailing" constant="10" id="Pi2-4c-COk"/>
+                            <constraint firstItem="xZa-bn-mzg" firstAttribute="top" secondItem="Wf9-AW-vXr" secondAttribute="top" constant="10" id="QW5-PQ-KRd"/>
+                            <constraint firstItem="xZa-bn-mzg" firstAttribute="leading" secondItem="Wf9-AW-vXr" secondAttribute="leading" constant="10" id="WAj-OJ-d6E"/>
+                            <constraint firstItem="vEB-RI-b28" firstAttribute="top" secondItem="xZa-bn-mzg" secondAttribute="bottom" constant="20" id="WTX-nb-ZQM"/>
+                            <constraint firstAttribute="trailing" secondItem="vEB-RI-b28" secondAttribute="trailing" constant="15" id="Zc0-Mk-pAl"/>
+                            <constraint firstItem="zFx-O5-HUE" firstAttribute="top" secondItem="fu0-ys-clg" secondAttribute="bottom" constant="34.329999999999998" id="g6u-vz-Gl5"/>
+                            <constraint firstAttribute="trailing" secondItem="zFx-O5-HUE" secondAttribute="trailing" constant="5" id="utT-rP-Htg"/>
+                            <constraint firstItem="fu0-ys-clg" firstAttribute="leading" secondItem="Wf9-AW-vXr" secondAttribute="leading" constant="80" id="yMx-OS-Zcc"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Wf9-AW-vXr" secondAttribute="bottom" id="0KJ-uS-1bM"/>
+                <constraint firstItem="Wf9-AW-vXr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="Wbn-xZ-SiX"/>
+                <constraint firstItem="Wf9-AW-vXr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="YK7-xe-Urr"/>
+                <constraint firstAttribute="trailing" secondItem="Wf9-AW-vXr" secondAttribute="trailing" constant="5" id="bLg-t2-WdS"/>
+            </constraints>
+            <size key="customSize" width="208" height="409"/>
+            <connections>
+                <outlet property="myView" destination="Wf9-AW-vXr" id="m9K-bi-uhx"/>
+                <outlet property="productImage" destination="xZa-bn-mzg" id="cDl-Fu-Pg1"/>
+            </connections>
+            <point key="canvasLocation" x="215.26717557251908" y="-27.816901408450704"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="test" width="478" height="557"/>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
