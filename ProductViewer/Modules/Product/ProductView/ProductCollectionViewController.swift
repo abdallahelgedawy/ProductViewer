@@ -6,44 +6,55 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 
 
 class ProductCollectionViewController: UICollectionViewController , UICollectionViewDelegateFlowLayout {
-    
+    var isInitialPortraitOrientation = true
+    let productViewModel = ProductViewModel()
+    let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "ProductCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "productCell")
-        collectionView.delegate = self
-        
+        collectionView.delegate = nil
+        collectionView.dataSource = nil
+        setUpCollection()
+        getProducts()
+       
     }
-    
-    
 }
     
 
     extension ProductCollectionViewController{
-        override func numberOfSections(in collectionView: UICollectionView) -> Int {
-            // #warning Incomplete implementation, return the number of sections
-            return 1
+        
+        func getProducts(){
+            productViewModel.getProducts()
         }
-
-
-        override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            // #warning Incomplete implementation, return the number of items
-            return 4
+        func setUpCollection(){
+            collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+            productViewModel.products.bind(to: collectionView.rx.items(cellIdentifier: "productCell",cellType: ProductCollectionViewCell.self)){ index , element , cell in
+                cell.setUpProduct(name: element.name, price: element.price, description: element.description, image: "notfound")
+                self.collectionView.reloadData()
+            }.disposed(by: disposeBag)
         }
+        
 
-        override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath)
-            return cell
-        }
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let isPortrait = UIDevice.current.orientation.isPortrait
+            let isLandscape = UIDevice.current.orientation.isLandscape
             let collectionViewWidth = collectionView.bounds.width
-            let cellWidth = isPortrait ? (collectionViewWidth - 30) / 2 : (collectionViewWidth - 10) / 2
-            let cellHeight = isPortrait ? collectionView.bounds.height / 2 : collectionView.bounds.height
+            let numberOfItemsPerRow: CGFloat = 2 // Adjust the number of items per row based on your desired layout
+            let horizontalSpacing: CGFloat = 10 // Adjust the horizontal spacing between cells as needed
+            
+            let cellWidth = (collectionViewWidth - (numberOfItemsPerRow - 1) * horizontalSpacing) / numberOfItemsPerRow
+            var cellHeight = collectionView.bounds.height / 2
+            
+            if isLandscape && collectionView.visibleCells.isEmpty {
+                // Adjust the height for the first run of portrait mode
+                cellHeight = collectionView.bounds.height
+            }
             
             return CGSize(width: cellWidth, height: cellHeight)
         }
@@ -53,9 +64,11 @@ class ProductCollectionViewController: UICollectionViewController , UICollection
             
             coordinator.animate(alongsideTransition: { _ in
                 self.collectionView.collectionViewLayout.invalidateLayout()
+            }, completion: { _ in
                 self.collectionView.reloadData()
-            }, completion: nil)
+            })
         }
+
     }
 
 
