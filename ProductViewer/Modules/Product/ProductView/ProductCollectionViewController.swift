@@ -8,15 +8,18 @@
 import UIKit
 import RxSwift
 import RxCocoa
-
+import Reachability
 
 
 class ProductCollectionViewController: UICollectionViewController , UICollectionViewDelegateFlowLayout {
+    var reachability : Reachability?
     var isInitialPortraitOrientation = true
     let productViewModel = ProductViewModel()
+    
     let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
+        reachability = try? Reachability()
         let nib = UINib(nibName: "ProductCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "productCell")
         collectionView.delegate = nil
@@ -31,16 +34,27 @@ class ProductCollectionViewController: UICollectionViewController , UICollection
     extension ProductCollectionViewController{
         
         func getProducts(){
-            productViewModel.getProducts()
+                productViewModel.getProducts()
+                
         }
         func setUpCollection(){
-            collectionView.rx.setDelegate(self).disposed(by: disposeBag)
-            productViewModel.products.bind(to: collectionView.rx.items(cellIdentifier: "productCell",cellType: ProductCollectionViewCell.self)){ index , element , cell in
-                cell.setUpProduct(name: element.name, price: element.price, description: element.description, image: "notfound")
-                self.collectionView.reloadData()
-            }.disposed(by: disposeBag)
+            if(reachability?.connection == Reachability.Connection.unavailable){
+                productViewModel.getProductsFromDB()
+                collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+                productViewModel.products.bind(to: collectionView.rx.items(cellIdentifier: "productCell",cellType: ProductCollectionViewCell.self)){ index , element , cell in
+                    cell.setUpProduct(name: element.name, price: element.price, description: element.description, image: "notfound")
+                    self.collectionView.reloadData()
+                }.disposed(by: disposeBag)
+            }
+            else{
+                collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+                productViewModel.products.bind(to: collectionView.rx.items(cellIdentifier: "productCell",cellType: ProductCollectionViewCell.self)){ index , element , cell in
+                    cell.setUpProduct(name: element.name, price: element.price, description: element.description, image: "notfound")
+                    self.collectionView.reloadData()
+                }.disposed(by: disposeBag)
+                
+            }
         }
-        
 
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             let isLandscape = UIDevice.current.orientation.isLandscape

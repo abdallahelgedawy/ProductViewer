@@ -21,7 +21,6 @@
 		B821851E2A35E5C900CA33A6 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = B821851D2A35E5C900CA33A6 /* Products.swift */; };
 		B82185232A35E61F00CA33A6 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82185222A35E61F00CA33A6 /* NetworkServiceProtocol.swift */; };
 		B82185262A35E64900CA33A6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82185252A35E64900CA33A6 /* NetworkService.swift */; };
-		B82185282A35E66800CA33A6 /* CachingServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82185272A35E66800CA33A6 /* CachingServiceProtocol.swift */; };
 		B821852A2A35E67F00CA33A6 /* CachingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82185292A35E67F00CA33A6 /* CachingService.swift */; };
 		B82185312A35E6EA00CA33A6 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82185302A35E6EA00CA33A6 /* ProductViewModel.swift */; };
 		B82185362A35E73400CA33A6 /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82185352A35E73400CA33A6 /* ProductDetailsViewModel.swift */; };
@@ -71,7 +70,6 @@
 		B821851D2A35E5C900CA33A6 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		B82185222A35E61F00CA33A6 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		B82185252A35E64900CA33A6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		B82185272A35E66800CA33A6 /* CachingServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingServiceProtocol.swift; sourceTree = "<group>"; };
 		B82185292A35E67F00CA33A6 /* CachingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingService.swift; sourceTree = "<group>"; };
 		B82185302A35E6EA00CA33A6 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		B82185352A35E73400CA33A6 /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				1E6150AA27A96639FED04BAE /* Pods-ProductViewerTests.debug.xcconfig */,
 				DE65EED174C25B78BF9B7F52 /* Pods-ProductViewerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -162,7 +159,6 @@
 				B82184F52A35E59800CA33A6 /* Assets.xcassets */,
 				B82184F72A35E59800CA33A6 /* LaunchScreen.storyboard */,
 				B82184FA2A35E59800CA33A6 /* Info.plist */,
-				B82184F22A35E59600CA33A6 /* ProductViewer.xcdatamodeld */,
 			);
 			path = ProductViewer;
 			sourceTree = "<group>";
@@ -213,7 +209,7 @@
 		B82185212A35E60700CA33A6 /* CachingService */ = {
 			isa = PBXGroup;
 			children = (
-				B82185272A35E66800CA33A6 /* CachingServiceProtocol.swift */,
+				B82184F22A35E59600CA33A6 /* ProductViewer.xcdatamodeld */,
 				B82185292A35E67F00CA33A6 /* CachingService.swift */,
 			);
 			path = CachingService;
@@ -549,7 +545,6 @@
 				B821852A2A35E67F00CA33A6 /* CachingService.swift in Sources */,
 				B82185262A35E64900CA33A6 /* NetworkService.swift in Sources */,
 				B821853B2A35E94F00CA33A6 /* ProductCollectionViewCell.swift in Sources */,
-				B82185282A35E66800CA33A6 /* CachingServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
