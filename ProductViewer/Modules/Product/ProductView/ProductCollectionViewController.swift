@@ -15,6 +15,7 @@ class ProductCollectionViewController: UICollectionViewController , UICollection
     var reachability : Reachability?
     var isInitialPortraitOrientation = true
     let productViewModel = ProductViewModel()
+    let navigateToDestination = PublishSubject<Void>()
     
     let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -26,9 +27,14 @@ class ProductCollectionViewController: UICollectionViewController , UICollection
         collectionView.dataSource = nil
         setUpCollection()
         getProducts()
+        collectionView.isUserInteractionEnabled = true
+      
        
     }
+    
+    
 }
+  
     
 
     extension ProductCollectionViewController{
@@ -38,23 +44,35 @@ class ProductCollectionViewController: UICollectionViewController , UICollection
                 
         }
         func setUpCollection(){
+            
             if(reachability?.connection == Reachability.Connection.unavailable){
+                
                 productViewModel.getProductsFromDB()
                 collectionView.rx.setDelegate(self).disposed(by: disposeBag)
                 productViewModel.products.bind(to: collectionView.rx.items(cellIdentifier: "productCell",cellType: ProductCollectionViewCell.self)){ index , element , cell in
                     cell.setUpProduct(name: element.name, price: element.price, description: element.description, image: "notfound")
-                    self.collectionView.reloadData()
+                 
                 }.disposed(by: disposeBag)
             }
             else{
                 collectionView.rx.setDelegate(self).disposed(by: disposeBag)
                 productViewModel.products.bind(to: collectionView.rx.items(cellIdentifier: "productCell",cellType: ProductCollectionViewCell.self)){ index , element , cell in
                     cell.setUpProduct(name: element.name, price: element.price, description: element.description, image: "notfound")
-                    self.collectionView.reloadData()
+                    
+
+                    
                 }.disposed(by: disposeBag)
                 
             }
-        }
+            
+            self.collectionView.rx.itemSelected
+                .subscribe(onNext: { indexPath in
+                    let details = self.storyboard?.instantiateViewController(withIdentifier: "details") as? ProductDetailsViewController
+                  self.navigationController?.pushViewController(details!, animated: true)
+                })
+                .disposed(by: disposeBag)
+            }
+        
 
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             let isLandscape = UIDevice.current.orientation.isLandscape
@@ -72,6 +90,7 @@ class ProductCollectionViewController: UICollectionViewController , UICollection
             
             return CGSize(width: cellWidth, height: cellHeight)
         }
+
 
         override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
             super.viewWillTransition(to: size, with: coordinator)
