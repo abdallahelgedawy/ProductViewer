@@ -21,11 +21,11 @@
                         <rect key="frame" x="5" y="5" width="200" height="399"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" image="test" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZa-bn-mzg">
-                                <rect key="frame" x="10" y="10" width="180" height="162"/>
+                                <rect key="frame" x="10" y="10" width="180" height="172"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Glad Clingwrap Plastic Wrap, 200 sf" textAlignment="right" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEB-RI-b28">
-                                <rect key="frame" x="0.0" y="192" width="195" height="40.666666666666657"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Glad Clingwrap Plastic Wrap, 200 sf" textAlignment="right" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEB-RI-b28">
+                                <rect key="frame" x="10" y="212" width="185" height="40.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -36,7 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.24$" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu0-ys-clg">
-                                <rect key="frame" x="80" y="237.66666666666666" width="97" height="15.666666666666657"/>
+                                <rect key="frame" x="4" y="237.66666666666666" width="32.666666666666664" height="15.666666666666657"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
@@ -44,19 +44,18 @@
                         </subviews>
                         <color key="backgroundColor" red="0.87383078231292521" green="0.86902104591836737" blue="0.79753932823129248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="fu0-ys-clg" firstAttribute="top" secondItem="vEB-RI-b28" secondAttribute="bottom" constant="5" id="1bq-Oe-E8h"/>
+                            <constraint firstItem="vEB-RI-b28" firstAttribute="leading" secondItem="Wf9-AW-vXr" secondAttribute="leading" constant="10" id="0Ha-GI-j4o"/>
+                            <constraint firstItem="fu0-ys-clg" firstAttribute="top" secondItem="vEB-RI-b28" secondAttribute="bottom" constant="-15" id="1bq-Oe-E8h"/>
                             <constraint firstAttribute="bottom" secondItem="zFx-O5-HUE" secondAttribute="bottom" constant="80" id="Hhr-S1-23V"/>
-                            <constraint firstItem="vEB-RI-b28" firstAttribute="leading" secondItem="Wf9-AW-vXr" secondAttribute="leading" id="Jb7-38-erk"/>
-                            <constraint firstAttribute="trailing" secondItem="fu0-ys-clg" secondAttribute="trailing" constant="23" id="NQ5-p2-p72"/>
                             <constraint firstItem="zFx-O5-HUE" firstAttribute="leading" secondItem="Wf9-AW-vXr" secondAttribute="leading" constant="5" id="PZo-c1-gLR"/>
                             <constraint firstAttribute="trailing" secondItem="xZa-bn-mzg" secondAttribute="trailing" constant="10" id="Pi2-4c-COk"/>
                             <constraint firstItem="xZa-bn-mzg" firstAttribute="top" secondItem="Wf9-AW-vXr" secondAttribute="top" constant="10" id="QW5-PQ-KRd"/>
                             <constraint firstItem="xZa-bn-mzg" firstAttribute="leading" secondItem="Wf9-AW-vXr" secondAttribute="leading" constant="10" id="WAj-OJ-d6E"/>
-                            <constraint firstItem="vEB-RI-b28" firstAttribute="top" secondItem="xZa-bn-mzg" secondAttribute="bottom" constant="20" id="WTX-nb-ZQM"/>
+                            <constraint firstItem="vEB-RI-b28" firstAttribute="top" secondItem="xZa-bn-mzg" secondAttribute="bottom" constant="30" id="WTX-nb-ZQM"/>
                             <constraint firstAttribute="trailing" secondItem="vEB-RI-b28" secondAttribute="trailing" constant="5" id="Zc0-Mk-pAl"/>
                             <constraint firstItem="zFx-O5-HUE" firstAttribute="top" secondItem="fu0-ys-clg" secondAttribute="bottom" constant="34.329999999999998" id="g6u-vz-Gl5"/>
                             <constraint firstAttribute="trailing" secondItem="zFx-O5-HUE" secondAttribute="trailing" constant="5" id="utT-rP-Htg"/>
-                            <constraint firstItem="fu0-ys-clg" firstAttribute="leading" secondItem="Wf9-AW-vXr" secondAttribute="leading" constant="80" id="yMx-OS-Zcc"/>
+                            <constraint firstItem="fu0-ys-clg" firstAttribute="leading" secondItem="Wf9-AW-vXr" secondAttribute="leading" multiplier="4:3" constant="4" id="yMx-OS-Zcc"/>
                         </constraints>
                     </view>
                 </subviews>

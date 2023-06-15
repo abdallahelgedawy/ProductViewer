@@ -15,7 +15,7 @@ class ProductCollectionViewController: UICollectionViewController , UICollection
     var reachability : Reachability?
     var isInitialPortraitOrientation = true
     let productViewModel = ProductViewModel()
-    let navigateToDestination = PublishSubject<Void>()
+
     
     let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -29,7 +29,6 @@ class ProductCollectionViewController: UICollectionViewController , UICollection
         getProducts()
         collectionView.isUserInteractionEnabled = true
       
-       
     }
     
     
@@ -37,41 +36,46 @@ class ProductCollectionViewController: UICollectionViewController , UICollection
   
     
 
-    extension ProductCollectionViewController{
+extension ProductCollectionViewController{
+    
+    func getProducts(){
+        productViewModel.getProducts()
         
-        func getProducts(){
-                productViewModel.getProducts()
+    }
+    func setUpCollection(){
+        
+        if(reachability?.connection == Reachability.Connection.unavailable){
+            
+            productViewModel.getProductsFromDB()
+            collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+            productViewModel.products.bind(to: collectionView.rx.items(cellIdentifier: "productCell",cellType: ProductCollectionViewCell.self)){ index , element , cell in
+                cell.setUpProduct(name: element.name, price: element.price, description: element.description, image: "notfound")
                 
+            }.disposed(by: disposeBag)
         }
-        func setUpCollection(){
-            
-            if(reachability?.connection == Reachability.Connection.unavailable){
+        else{
+            collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+            productViewModel.products.bind(to: collectionView.rx.items(cellIdentifier: "productCell",cellType: ProductCollectionViewCell.self)){ index , element , cell in
+                cell.setUpProduct(name: element.name, price: element.price, description: element.description, image:element.imageURL!)
                 
-                productViewModel.getProductsFromDB()
-                collectionView.rx.setDelegate(self).disposed(by: disposeBag)
-                productViewModel.products.bind(to: collectionView.rx.items(cellIdentifier: "productCell",cellType: ProductCollectionViewCell.self)){ index , element , cell in
-                    cell.setUpProduct(name: element.name, price: element.price, description: element.description, image: "notfound")
-                 
-                }.disposed(by: disposeBag)
-            }
-            else{
-                collectionView.rx.setDelegate(self).disposed(by: disposeBag)
-                productViewModel.products.bind(to: collectionView.rx.items(cellIdentifier: "productCell",cellType: ProductCollectionViewCell.self)){ index , element , cell in
-                    cell.setUpProduct(name: element.name, price: element.price, description: element.description, image: "notfound")
-                    
+                
+                
+            }.disposed(by: disposeBag)
+            
+        }
+        
+        self.collectionView.rx.itemSelected
+            .subscribe(onNext: { indexPath in
+                let productDetailsViewModel = self.productViewModel.instantiateProductDetails(index: indexPath.row)
+                let details = self.storyboard?.instantiateViewController(withIdentifier: "details") as? ProductDetailsViewController
+                
+                details?.productDetailsViewModel = productDetailsViewModel!
+                self.navigationController?.pushViewController(details!, animated: true)
+                        
+            })
+            .disposed(by: disposeBag)
+    }
 
-                    
-                }.disposed(by: disposeBag)
-                
-            }
-            
-            self.collectionView.rx.itemSelected
-                .subscribe(onNext: { indexPath in
-                    let details = self.storyboard?.instantiateViewController(withIdentifier: "details") as? ProductDetailsViewController
-                  self.navigationController?.pushViewController(details!, animated: true)
-                })
-                .disposed(by: disposeBag)
-            }
         
 
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

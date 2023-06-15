@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var productPriceLabel: UILabel!
@@ -21,9 +22,9 @@ class ProductCollectionViewCell: UICollectionViewCell {
     }
     func setUpProduct(name : String , price : String , description : String , image : String){
         productNameLabel.text = name
-        productPriceLabel.text = price
+        productPriceLabel.text = price + "$"
         productDescriptionLabel.text = description
-        productImage.image = UIImage(named: image ?? "")
+        productImage.sd_setImage(with:URL(string: image) , placeholderImage: UIImage(named:"notfound"))
     }
     
 
