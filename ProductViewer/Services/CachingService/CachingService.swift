@@ -26,10 +26,10 @@ class CachingService{
                    myproduct.setValue(product.price, forKey: "price")
                    myproduct.setValue(product.description, forKey: "myDescription")
                    try  context?.save()
-                   print("added successfully")
                    completion(true)
+               // Added sucessfully
                }catch{
-                   print("an error occured in add")
+                   // Problem while inserting
                    completion(false)
                }
        }
@@ -41,13 +41,11 @@ class CachingService{
             for product in allProducts {
                 let Productsaved = ProductClass(id: "", name: product.value(forKey: "name") as! String, description: product.value(forKey: "myDescription") as! String, price: product.value(forKey: "price") as! String, unitPrice: nil, productTypeID: nil, imageURL: product.value(forKey: "image") as! String, shoppingListItemID: nil, shoppingCartItemID: nil)
                 retrievedArray.append(Productsaved)
-                print(Productsaved.name)
             }
-            print(retrievedArray.count)
-            print("data retrived succsessfully")
+            // Fetch the product sucessfully
             completion(retrievedArray)
         }catch{
-            print("error")
+            // error in fetching
             completion(nil)
             
         }

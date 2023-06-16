@@ -21,6 +21,7 @@ class ProductDetailsViewController: UIViewController {
         detailsImage.layer.cornerRadius = 20
         setUpViewController()
     }
+    // Set Up my view to show
     func setUpViewController(){
         productDetailsViewModel.detailedProducts.subscribe(onNext: { [weak self] product in
             DispatchQueue.main.async {
@@ -28,7 +29,7 @@ class ProductDetailsViewController: UIViewController {
                 self?.detailsImage.sd_setImage(with:URL(string: (product?.imageURL)!) , placeholderImage: UIImage(named: "notfound"))
             }
         }).disposed(by: disposeBag)
-  }
+  }  // Hndle orientation Change
     @objc func handleOrientationChange() {
         if UIDevice.current.orientation.isLandscape {
             myView.axis = .horizontal

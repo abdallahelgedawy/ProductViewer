@@ -7,5 +7,5 @@
 
 import Foundation
 protocol NetworkServiceProtocol{
-    func getProducts(url : String ,completionHandler : @escaping ([ProductClass])->Void)
+    func getProducts(url : String ,completionHandler : @escaping ([ProductClass] , Error?)->Void)
 }

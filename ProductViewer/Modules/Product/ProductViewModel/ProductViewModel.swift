@@ -16,26 +16,52 @@ class ProductViewModel{
     var myProducts : [ProductClass] = []
     let database = CachingService.getInstance
     let favProducts : PublishSubject<[ProductClass]> = PublishSubject()
+    //method to fetch api and insert products into database
     func getProducts(){
-        network.getProducts(url: Constants.baseUrl) {[weak self] products in
-            self?.products.onNext(products)
-            self?.products.onCompleted()
-            self?.myProducts.append(contentsOf: products)
-            print("gedo" , self?.myProducts.count)
-            for product in products {
-                
-                self?.database.insertProduct(product: product,completion: { product in
-                    print(product)
-                })
+        network.getProducts(url: Constants.baseUrl) {[weak self] products , error in
+            if error != nil {
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+                }
+            }
+            else{
+                self?.products.onNext(products)
+                self?.products.onCompleted()
+                self?.myProducts.append(contentsOf: products)
+                for product in products {
+                    self?.database.insertProduct(product: product,completion: { insert in
+                        if insert == false{
+                        DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+                            }
+
+                        }
+                    })
+                }
             }
         }
     }
+    
     func getProductsFromDB(){
         database.getAllProducts { products in
-            self.favProducts.onNext(products!)
-            
+            if products == nil {
+                DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Error", message: "Error in fetching Data from Database", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+                }
+
+            }
+            else {
+                self.favProducts.onNext(products!)
+            }
         }
     }
+    // send the object to the product details viewModel
     func instantiateProductDetails(index: Int) -> ProductDetailsViewModel? {
         guard index >= 0 else {
             return nil
@@ -43,9 +69,7 @@ class ProductViewModel{
         
         let productDetailsViewModel = ProductDetailsViewModel()
             let productAtIndex = self.myProducts[index]
-           // print(productAtIndex)
             productDetailsViewModel.detailedProducts.onNext(productAtIndex)
-          
             return productDetailsViewModel
         
         

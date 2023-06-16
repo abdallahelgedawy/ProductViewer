@@ -7,5 +7,6 @@
 
 import Foundation
 class Constants{
+    //Api Base Url
     static var baseUrl = "https://www.nweave.com/wp-content/uploads/2012/09/featured.txt"
 }

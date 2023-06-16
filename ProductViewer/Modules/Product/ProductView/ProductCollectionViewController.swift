@@ -77,7 +77,7 @@ extension ProductCollectionViewController{
     }
 
         
-
+        //setUp the layout of my collection view
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             let isLandscape = UIDevice.current.orientation.isLandscape
             let collectionViewWidth = collectionView.bounds.width
