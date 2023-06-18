@@ -13,8 +13,8 @@ class CachingService{
        static let getInstance = CachingService()
       private init() {
           print("single object created")
-          let appDelegate=UIApplication.shared.delegate as! AppDelegate
-          context=appDelegate.persistentContainer.viewContext
+          let appDelegate=UIApplication.shared.delegate as? AppDelegate
+          context=appDelegate?.persistentContainer.viewContext
        }
     func insertProduct(product:ProductClass,completion : @escaping (Bool)-> Void){
            let fetchRequest=NSFetchRequest<NSManagedObject>(entityName: "Products")
@@ -39,11 +39,22 @@ class CachingService{
         do{
             let allProducts=try context!.fetch(fetchRequest)
             for product in allProducts {
-                let Productsaved = ProductClass(id: "", name: product.value(forKey: "name") as! String, description: product.value(forKey: "myDescription") as! String, price: product.value(forKey: "price") as! String, unitPrice: nil, productTypeID: nil, imageURL: product.value(forKey: "image") as! String, shoppingListItemID: nil, shoppingCartItemID: nil)
-                retrievedArray.append(Productsaved)
+                let productsaved = ProductClass(
+                    id: "",
+                    name: product.value(forKey: "name") as? String ?? "",
+                    description: product.value(forKey: "myDescription") as? String ?? "",
+                    price: product.value(forKey: "price") as? String ?? "",
+                    unitPrice: nil,
+                    productTypeID: nil,
+                    imageURL: product.value(forKey: "image") as? String ?? "",
+                    shoppingListItemID: nil,
+                    shoppingCartItemID: nil
+                )
+
+                retrievedArray.append(productsaved)
+                completion(retrievedArray)
+                
             }
-            // Fetch the product sucessfully
-            completion(retrievedArray)
         }catch{
             // error in fetching
             completion(nil)

@@ -11,6 +11,7 @@ target 'ProductViewer' do
     pod 'RxCocoa'
     pod 'ReachabilitySwift'
 pod 'SDWebImage'
+pod 'SwiftLint'
 
   target 'ProductViewerTests' do
     inherit! :search_paths

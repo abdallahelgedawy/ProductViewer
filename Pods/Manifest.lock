@@ -9,16 +9,19 @@ PODS:
   - SDWebImage (5.16.0):
     - SDWebImage/Core (= 5.16.0)
   - SDWebImage/Core (5.16.0)
+  - SwiftLint (0.52.2)
 
 DEPENDENCIES:
   - ReachabilitySwift
   - RxCocoa
   - RxSwift
   - SDWebImage
+  - SwiftLint
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - SDWebImage
+    - SwiftLint
   trunk:
     - ReachabilitySwift
     - RxCocoa
@@ -31,7 +34,8 @@ SPEC CHECKSUMS:
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SDWebImage: 2aea163b50bfcb569a2726b6a754c54a4506fcf6
+  SwiftLint: 1ac76dac888ca05cb0cf24d0c85887ec1209961d
 
-PODFILE CHECKSUM: 185e76dce35eb6a79c8a0809b04fcdbb19eac33e
+PODFILE CHECKSUM: d76fa9d6c01e9dbf6f869daa50da856ad2ebf0b4
 
 COCOAPODS: 1.8.4
